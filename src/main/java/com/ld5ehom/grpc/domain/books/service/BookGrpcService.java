@@ -3,6 +3,7 @@ package com.ld5ehom.grpc.domain.books.service;
 import bookstore.BookServiceGrpc;
 import bookstore.Bookstore;
 import com.ld5ehom.grpc.domain.books.entity.Book;
+import com.ld5ehom.grpc.global.interceptor.BasicAuthInterceptor;
 import com.ld5ehom.grpc.global.utils.TimestampConverter;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
@@ -12,7 +13,7 @@ import java.util.List;
 
 // Exposes book-related operations via gRPC endpoints
 // gRPC를 통해 서적 관련 기능을 제공하는 진입 서비스
-@GrpcService
+@GrpcService(interceptors = BasicAuthInterceptor.class)
 public class BookGrpcService extends BookServiceGrpc.BookServiceImplBase {
 
     private final BookService bookService;

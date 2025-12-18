@@ -1,6 +1,6 @@
 spring:
   application:
-    name: grpc-demo
+    name: grpc
 
   sql:
     init:
